@@ -1,3 +1,8 @@
+/**
+ * - The color object for Discord.js
+ * - It has 25 colors
+ * - It only works with Discord.js
+ */
 const colors = {
   Red: 0xff0000,
   Orange: 0xffa500,
@@ -53,4 +58,67 @@ const colors = {
   },
 };
 
-module.exports = colors;
+let colorArray = [
+  "Red",
+  "Orange",
+  "Yellow",
+  "Green",
+  "Blue",
+  "Indigo",
+  "Voilet",
+  "Purple",
+  "Lime",
+  "LemonJuice",
+  "CadetBlue",
+  "HotPink",
+  "CornFlowerBlue",
+  "Brick",
+  "OliveDrab",
+  "Olive",
+  "Coral",
+  "LightCoral",
+  "Cyan",
+  "LightCyan",
+  "Aqua",
+  "Aquamarine",
+  "Salmon",
+  "SeaGreen",
+  "SeaBlue",
+];
+
+class AmountError extends Error {
+  constructor(message) {
+    super(`[InvalidAmount]: ${message}`);
+    this.name = "AmountError";
+  }
+}
+
+/**
+ * - 25 Colors
+ * @param {number} amount
+ * @returns all the colors name
+ * @example ```js
+ * console.log(colorNames(10)); // It'll log the first 10 colors
+ * console.log(colorNames()); // It'll log all the colors
+ * ```
+ */
+
+function colorNames(amount = 25) {
+  if (amount < 0 || amount > 25) {
+    throw new AmountError(
+      `Whoa there, hold on a sec! We've got a problem here. The amount you entered is not within the acceptable range. It should be between 0 and 25, but you entered ${amount}. Let's try that again with a value within the specified range, shall we?`
+    );
+  }
+  if (typeof amount !== "number" || typeof amount !== "undefined") {
+    throw new TypeError(
+      `Expected type to be "number" but got "${typeof amount}" instead.`
+    );
+  }
+  let colors = colorArray.slice(0, amount);
+  return colors.join(", ");
+}
+
+module.exports = {
+  colors,
+  colorNames,
+};
