@@ -1,0 +1,29 @@
+{
+  "name": "discordjs-color-bundle",
+  "version": "1.0.0",
+  "description": "Tons of colors for your DiscordJS bot's embed",
+  "main": "src/index.js",
+  "types": "typings/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sohom829/discordjs-color-bundle.git"
+  },
+  "keywords": [
+    "Node",
+    "Discord",
+    "Discor.js",
+    "discordjs",
+    "colors",
+    "module",
+    "js"
+  ],
+  "author": "Rlyxren Development, Mohtasim Alam Sohom, Sajidur Rahman Tahsin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sohom829/discordjs-color-bundle/issues"
+  },
+  "homepage": "https://github.com/Sohom829/discordjs-color-bundle#readme"
+}
