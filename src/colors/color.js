@@ -1,9 +1,9 @@
 /**
  * - The color object for Discord.js
- * - It has 25 colors
+ * - It has 30 colors
  * - It only works with Discord.js
  */
-const colors = {
+ const colors = {
   Red: 0xff0000,
   Orange: 0xffa500,
   Yellow: 0xffff00,
@@ -29,6 +29,11 @@ const colors = {
   Salmon: 0xfa8072,
   SeaGreen: 0x2e8b57,
   SeaBlue: 0x006994,
+  LightSeaGreen: 0x20b2aa,
+  SkyBlue: 0x87CEEB,
+  LightSkyBlue: 0x87CEEB,
+  SpringGreen: 0x00FF7F,
+  Tomato: 0xFF6347,
   Colors: {
     Red: 0xff0000,
     Orange: 0xffa500,
@@ -55,6 +60,11 @@ const colors = {
     Salmon: 0xfa8072,
     SeaGreen: 0x2e8b57,
     SeaBlue: 0x006994,
+    LightSeaGreen: 0x20b2aa,
+    SkyBlue: 0x87CEEB,
+    LightSkyBlue: 0x87CEEB,
+    SpringGreen: 0x00FF7F,
+    Tomato: 0xFF6347
   },
 };
 
@@ -84,6 +94,11 @@ let colorArray = [
   "Salmon",
   "SeaGreen",
   "SeaBlue",
+  "LightSeaGreen", 
+  "SkyBlue",
+  "LightSkyBlue",
+  "SpringGreen",
+  "Tomato"
 ];
 
 class AmountError extends Error {
@@ -94,7 +109,7 @@ class AmountError extends Error {
 }
 
 /**
- * - 25 Colors
+ * - 30 Colors
  * @param {number} amount
  * @returns all the colors name
  * @example ```js
@@ -103,10 +118,10 @@ class AmountError extends Error {
  * ```
  */
 
-function colorNames(amount = 25) {
-  if (amount < 0 || amount > 25) {
+function colorNames(amount = 30) {
+  if (amount < 0 || amount > 30) {
     throw new AmountError(
-      `Whoa there, hold on a sec! We've got a problem here. The amount you entered is not within the acceptable range. It should be between 0 and 25, but you entered ${amount}. Let's try that again with a value within the specified range, shall we?`
+      `Whoa there, hold on a sec! We've got a problem here. The amount you entered is not within the acceptable range. It should be between 0 and 30, but you entered ${amount}. Let's try that again with a value within the specified range, shall we?`
     );
   }
   if (typeof amount !== "number" || typeof amount !== "undefined") {
