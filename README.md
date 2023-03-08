@@ -1,4 +1,4 @@
-# 🍃 DiscordJS Colors Bundle
+# 🌈 DiscordJS Colors Bundle
 
 Tons of colors pack for your Discord Bot's embed
 
