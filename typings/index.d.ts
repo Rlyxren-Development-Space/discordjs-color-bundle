@@ -29,6 +29,11 @@
     Salmon: number;
     SeaGreen: number;
     SeaBlue: number;
+    LightSeaGreen: number;
+    SkyBlue: number;
+    LightSkyBlue: number;
+    SpringGreen: number;
+    Tomato: number;
     Colors: {
       Red: number;
       Orange: number;
