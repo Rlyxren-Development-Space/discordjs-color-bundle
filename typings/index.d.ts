@@ -1,0 +1,58 @@
+type colorsType = {
+  Red: number;
+  Orange: number;
+  Yellow: number;
+  Green: number;
+  Blue: number;
+  Indigo: number;
+  Violet: number;
+  Purple: number;
+  Lime: number;
+  LemonJuice: number;
+  CadetBlue: number;
+  HotPink: number;
+  CornFlowerBlue: number;
+  Brick: number;
+  OliveDrab: number;
+  Olive: number;
+  Coral: number;
+  LightCoral: number;
+  Cyan: number;
+  LightCyan: number;
+  Aqua: number;
+  Aquamarine: number;
+  Salmon: number;
+  SeaGreen: number;
+  SeaBlue: number;
+  Colors: {
+    Red: number;
+    Orange: number;
+    Yellow: number;
+    Green: number;
+    Blue: number;
+    Indigo: number;
+    Violet: number;
+    Purple: number;
+    Lime: number;
+    LemonJuice: number;
+    CadetBlue: number;
+    HotPink: number;
+    CornFlowerBlue: number;
+    Brick: number;
+    OliveDrab: number;
+    Olive: number;
+    Coral: number;
+    LightCoral: number;
+    Cyan: number;
+    LightCyan: number;
+    Aqua: number;
+    Aquamarine: number;
+    Salmon: number;
+    SeaGreen: number;
+    SeaBlue: number;
+  };
+};
+
+declare const colors: colorsType;
+
+export = colors;
