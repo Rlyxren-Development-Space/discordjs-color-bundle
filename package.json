@@ -1,5 +1,5 @@
 {
-  "name": "discordjs-color-bundle",
+  "name": "discordjs-colors-bundle",
   "version": "1.0.0",
   "description": "Tons of colors for your DiscordJS bot's embed",
   "main": "src/index.js",
