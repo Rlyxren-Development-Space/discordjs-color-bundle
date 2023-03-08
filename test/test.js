@@ -1,3 +1,4 @@
-const { Colors } = require("../src");
+const { colors, colorNames } = require("../src");
 
-console.log(Colors.OliveDrab);
+console.log(colors.OliveDrab);
+console.log(colorNames(352736));
