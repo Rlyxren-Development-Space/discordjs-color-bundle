@@ -1,8 +1,18 @@
+function getRandomHexColor() {
+  let letters = "0123456789ABCDEF";
+  let color = "0x";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return parseInt(color, 16);
+}
+
 /**
  * - The color object for Discord.js
- * - It has 50 colors
+ * - It has more than 50 colors
  * - It only works with Discord.js
  */
+
 const colors = {
   Red: 0xff0000,
   Orange: 0xffa500,
@@ -54,6 +64,7 @@ const colors = {
   MintMist: 0xb0e0e6,
   FrostyFern: 0x4f7942,
   MidnightMarina: 0x003366,
+  RandomAdvanced: getRandomHexColor(),
   Colors: {
     Red: 0xff0000,
     Orange: 0xffa500,
@@ -105,6 +116,7 @@ const colors = {
     MintMist: 0xb0e0e6,
     FrostyFern: 0x4f7942,
     MidnightMarina: 0x003366,
+    RandomAdvanced: getRandomHexColor(),
   },
 };
 
@@ -169,7 +181,7 @@ class AmountError extends Error {
 }
 
 /**
- * - 30 Colors
+ * - 50 Colors
  * @param {number} amount
  * @returns all the colors name
  * @example ```js
@@ -184,7 +196,7 @@ function colorNames(amount = 50) {
       `Whoa there, hold on a sec! We've got a problem here. The amount you entered is not within the acceptable range. It should be between 0 and 50, but you entered ${amount}. Let's try that again with a value within the specified range, shall we?`
     );
   }
-  if (typeof amount !== "number" || typeof amount !== "undefined") {
+  if (typeof amount !== "number") {
     throw new TypeError(
       `Expected type to be "number" but got "${typeof amount}" instead.`
     );

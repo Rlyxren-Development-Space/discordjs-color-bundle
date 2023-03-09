@@ -1,9 +1,6 @@
-/**
- * - The color type for Discord.js
- * - It has 50 colors with number type
- */
+declare function getRandomHexColor(): number;
 
-type colorsType = {
+declare interface DiscordColors {
   Red: number;
   Orange: number;
   Yellow: number;
@@ -51,9 +48,7 @@ type colorsType = {
   SeafoamSplash: number;
   LimeFizz: number;
   SapphireDepths: number;
-  MintMist: number;
-  FrostyFern: number;
-  MidnightMarina: number;
+  RandomAdvanced: number;
   Colors: {
     Red: number;
     Orange: number;
@@ -102,27 +97,9 @@ type colorsType = {
     SeafoamSplash: number;
     LimeFizz: number;
     SapphireDepths: number;
-    MintMist: number;
-    FrostyFern: number;
-    MidnightMarina: number;
   };
-};
-/**
- * - The color object for Discord.js
- * - It has 30 colors
- * - It only works with Discord.js
- */
-declare const colors: colorsType;
+}
 
-/**
- * - 50 Colors
- * @param {number} amount
- * @returns all the colors name
- * @example ```js
- * console.log(colorNames(10)); // It'll log the first 10 colors
- * console.log(colorNames()); // It'll log all the colors
- * ```
- */
-declare function colorNames(amount?: number): string;
+declare const colors: DiscordColors;
 
-export { colors, colorNames };
+export { getRandomHexColor, colors };
