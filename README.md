@@ -18,7 +18,7 @@ yarn add discordjs-colors-bundle
 
 ## 🚀 Features
 
-- More than 25 unique colors
+- More than 50 unique colors
 - Zero-Dependency module
 - Light weight
 - TypeScript support
