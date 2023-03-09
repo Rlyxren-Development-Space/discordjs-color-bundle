@@ -1,9 +1,9 @@
 /**
  * - The color object for Discord.js
- * - It has 30 colors
+ * - It has 50 colors
  * - It only works with Discord.js
  */
- const colors = {
+const colors = {
   Red: 0xff0000,
   Orange: 0xffa500,
   Yellow: 0xffff00,
@@ -30,10 +30,30 @@
   SeaGreen: 0x2e8b57,
   SeaBlue: 0x006994,
   LightSeaGreen: 0x20b2aa,
-  SkyBlue: 0x87CEEB,
-  LightSkyBlue: 0x87CEEB,
-  SpringGreen: 0x00FF7F,
-  Tomato: 0xFF6347,
+  SkyBlue: 0x87ceeb,
+  LightSkyBlue: 0x87ceeb,
+  SpringGreen: 0x00ff7f,
+  Tomato: 0xff6347,
+  Chartreuse: 0xdfff00,
+  DarkChartreuse: 0x7fff00,
+  SandyBrown: 0xf4a460,
+  Plum: 0x673147,
+  MysticMauve: 0xb699ae,
+  ElectricKiwi: 0xcfff04,
+  VelvetMaroon: 0x800020,
+  TurquoiseSurf: 0x00c5cd,
+  MidnightSun: 0xffcb6b,
+  CherryBlossomPink: 0xffb7c5,
+  LavenderHaze: 0xb57edc,
+  CaramelLatte: 0xaf6f09,
+  Goldenrod: 0xdaa520,
+  IndigoNight: 0x4b0082,
+  SeafoamSplash: 0x00ffc6,
+  LimeFizz: 0x9acd32,
+  SapphireDepths: 0x082567,
+  MintMist: 0xb0e0e6,
+  FrostyFern: 0x4f7942,
+  MidnightMarina: 0x003366,
   Colors: {
     Red: 0xff0000,
     Orange: 0xffa500,
@@ -61,10 +81,30 @@
     SeaGreen: 0x2e8b57,
     SeaBlue: 0x006994,
     LightSeaGreen: 0x20b2aa,
-    SkyBlue: 0x87CEEB,
-    LightSkyBlue: 0x87CEEB,
-    SpringGreen: 0x00FF7F,
-    Tomato: 0xFF6347
+    SkyBlue: 0x87ceeb,
+    LightSkyBlue: 0x87ceeb,
+    SpringGreen: 0x00ff7f,
+    Tomato: 0xff6347,
+    Chartreuse: 0xdfff00,
+    DarkChartreuse: 0x7fff00,
+    SandyBrown: 0xf4a460,
+    Plum: 0x673147,
+    MysticMauve: 0xb699ae,
+    ElectricKiwi: 0xcfff04,
+    VelvetMaroon: 0x800020,
+    TurquoiseSurf: 0x00c5cd,
+    MidnightSun: 0xffcb6b,
+    CherryBlossomPink: 0xffb7c5,
+    LavenderHaze: 0xb57edc,
+    CaramelLatte: 0xaf6f09,
+    Goldenrod: 0xdaa520,
+    IndigoNight: 0x4b0082,
+    SeafoamSplash: 0x00ffc6,
+    LimeFizz: 0x9acd32,
+    SapphireDepths: 0x082567,
+    MintMist: 0xb0e0e6,
+    FrostyFern: 0x4f7942,
+    MidnightMarina: 0x003366,
   },
 };
 
@@ -94,11 +134,11 @@ let colorArray = [
   "Salmon",
   "SeaGreen",
   "SeaBlue",
-  "LightSeaGreen", 
+  "LightSeaGreen",
   "SkyBlue",
   "LightSkyBlue",
   "SpringGreen",
-  "Tomato"
+  "Tomato",
 ];
 
 class AmountError extends Error {
@@ -118,10 +158,10 @@ class AmountError extends Error {
  * ```
  */
 
-function colorNames(amount = 30) {
-  if (amount < 0 || amount > 30) {
+function colorNames(amount = 50) {
+  if (amount < 0 || amount > 50) {
     throw new AmountError(
-      `Whoa there, hold on a sec! We've got a problem here. The amount you entered is not within the acceptable range. It should be between 0 and 30, but you entered ${amount}. Let's try that again with a value within the specified range, shall we?`
+      `Whoa there, hold on a sec! We've got a problem here. The amount you entered is not within the acceptable range. It should be between 0 and 50, but you entered ${amount}. Let's try that again with a value within the specified range, shall we?`
     );
   }
   if (typeof amount !== "number" || typeof amount !== "undefined") {
