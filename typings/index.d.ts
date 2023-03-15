@@ -1,5 +1,7 @@
 declare function getRandomHexColor(): number;
 
+declare function CustomHex(hexCode: string): number;
+
 declare interface DiscordColors {
   Red: number;
   Orange: number;
@@ -48,58 +50,22 @@ declare interface DiscordColors {
   SeafoamSplash: number;
   LimeFizz: number;
   SapphireDepths: number;
+  MintMist: number;
+  FrostyFern: number;
+  MidnightMarina: number;
+  WildStrawberry: number;
+  DeepAqua: number;
+  BerrySorbet: number;
+  DreamyLavender: number;
+  WildWatermelon: number;
+  FrostyMint: number;
+  PeachyPink: number;
+  PastelPeach: number;
+  CandyPink: number;
+  PowderBlue: number;
   RandomAdvanced: number;
-  Colors: {
-    Red: number;
-    Orange: number;
-    Yellow: number;
-    Green: number;
-    Blue: number;
-    Indigo: number;
-    Violet: number;
-    Purple: number;
-    Lime: number;
-    LemonJuice: number;
-    CadetBlue: number;
-    HotPink: number;
-    CornFlowerBlue: number;
-    Brick: number;
-    OliveDrab: number;
-    Olive: number;
-    Coral: number;
-    LightCoral: number;
-    Cyan: number;
-    LightCyan: number;
-    Aqua: number;
-    Aquamarine: number;
-    Salmon: number;
-    SeaGreen: number;
-    SeaBlue: number;
-    LightSeaGreen: number;
-    SkyBlue: number;
-    LightSkyBlue: number;
-    SpringGreen: number;
-    Tomato: number;
-    Chartreuse: number;
-    DarkChartreuse: number;
-    SandyBrown: number;
-    Plum: number;
-    MysticMauve: number;
-    ElectricKiwi: number;
-    VelvetMaroon: number;
-    TurquoiseSurf: number;
-    MidnightSun: number;
-    CherryBlossomPink: number;
-    LavenderHaze: number;
-    CaramelLatte: number;
-    Goldenrod: number;
-    IndigoNight: number;
-    SeafoamSplash: number;
-    LimeFizz: number;
-    SapphireDepths: number;
-  };
 }
 
 declare const colors: DiscordColors;
 
-export { getRandomHexColor, colors };
+export { getRandomHexColor, CustomHex, colors };
