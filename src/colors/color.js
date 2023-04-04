@@ -47,7 +47,7 @@ function CustomHex(hexCode) {
 
 /**
  * - The color object for Discord.js
- * - It has more than 50 colors
+ * - It has more than 148 colors
  * - It only works with Discord.js
  */
 
@@ -203,6 +203,84 @@ const colors = {
   RandomAdvanced: getRandomHexColor(),
 };
 
+/**
+ * - The Product Color Object for Discord.js
+ * - It has unique colors
+ * - Colors of Electronics, Soaps etc
+ * - More than 15 colors
+ */
+
+const ProductColors = {
+  Soap: {
+    DettolOriginalSoap: 0xc5e6a4,
+    LifebuoyTotal10Soap: 0xfc8d8e,
+    DoveWhiteBeautyBarSoap: 0xf3f3f3,
+    IvoryOriginalBathSoap: 0xf2f2f2,
+  },
+  Electronics: {
+    RazerBlade15GamingLaptop: 0x00ff7f,
+    AppleiPhone13ProMax: 0x0e8cbd,
+    SamsungGalaxyS21Ultra: 0xc2185b,
+    SonyPlayStation5: 0x000000,
+  },
+  FoodAndBeverages: {
+    CocaColaClassic: 0xf40009,
+    Pepsi: 0x0078c1,
+    KitKat: 0xd40000,
+    Oreo: 0x0d1c2e,
+  },
+  Clothing: {
+    NikeAirMax97: 0xb2b2b2,
+    AdidasOriginalsSuperstar: 0xffffff,
+    Levis501OriginalJeans: 0x263238,
+    HAndMBasicTshirt: 0xefefef,
+  },
+};
+
+/**
+ * - The Internet Color Object for Discord.js
+ * - It has awesome colors
+ * - Colors of popular apps
+ * - More than 10 colors
+ */
+
+const InternetColors = {
+  SocialMedia: {
+    FacebookLogo: 0x1877f2,
+    TwitterLogo: 0x1da1f2,
+    InstagramLogo: 0xe4405f,
+    LinkedInLogo: 0x0a66c2,
+    SnapchatLogo: 0xfffc00,
+  },
+  Communication: {
+    DiscordLogo: 0x7289da,
+    ZoomLogo: 0x2d8cff,
+    SkypeLogo: 0x00aff0,
+    SlackLogo: 0x4a154b,
+  },
+  ECommerce: {
+    AmazonLogo: 0xff9900,
+    eBayLogo: 0xe53238,
+    ShopifyLogo: 0x7ab55c,
+  },
+  Musics: {
+    MusicStreaming: {
+      SpotifyLogo: 0x1db954,
+      AppleMusicLogo: 0xfe2c55,
+      TidalLogo: 0xffffff,
+    },
+    MusicRecognition: {
+      ShazamLogo: 0x0088ff,
+      MusixmatchLogo: 0xf05028,
+    },
+    MusicalInstruments: {
+      FenderLogo: 0xff8c00,
+      GibsonLogo: 0x000000,
+      YamahaLogo: 0xe40045,
+    },
+  },
+};
+
 var colorArray = [
   "Red",
   "Orange",
@@ -284,19 +362,35 @@ function ColorNameError(prefix, ...message) {
 
 ColorNameError.prototype = Object.create(Error.prototype);
 
-function colorNames(colors) {
-  if (typeof colors === "undefined") {
+function colorNames(...colors) {
+  if (colors.length === 0) {
     throw new ColorNameError("NoObjectProvided", "No colors object provided.");
   }
-  if (typeof colors !== "object") {
-    throw new ColorNameError(
-      "TypeError",
-      `
-  Expected colors to be an "object" but got "${typeof colors}" instead.`
-    );
-  }
 
-  var colorNames = Object.keys(colors).sort();
+  var colorNames = [];
+
+  colors.forEach((colorsObj) => {
+    if (typeof colorsObj !== "object") {
+      throw new ColorNameError(
+        "TypeError",
+        `
+  Expected colors to be an "object" but got "${typeof colorsObj}" instead.`
+      );
+    }
+    // recursively get all color names from nested objects
+    var getObjectColorNames = function (obj) {
+      Object.keys(obj).forEach((key) => {
+        if (typeof obj[key] === "object") {
+          getObjectColorNames(obj[key]);
+        } else {
+          colorNames.push(key);
+        }
+      });
+    };
+    getObjectColorNames(colorsObj);
+  });
+
+  colorNames = [...new Set(colorNames)].sort();
 
   var colorIndexMap = {};
   colorNames.forEach((colorName, index) => {
@@ -307,7 +401,15 @@ function colorNames(colors) {
   var responseTime = new Date();
   for (var i = 0; i < colorNames.length; i++) {
     var colorName = colorNames[i];
-    var colorValue = colors[colorName];
+    var colorValue = "";
+    var colorsObjIndex = 0;
+    while (!colorValue && colorsObjIndex < colors.length) {
+      colorValue = getObjectPropertyValue(colors[colorsObjIndex], colorName);
+      colorsObjIndex++;
+    }
+    if (!colorValue) {
+      continue;
+    }
     var ansiColor = hexToAnsi(colorValue);
     var fromIndex = colorIndexMap[colorName] + 1;
     var toIndex = colorNames.length;
@@ -322,6 +424,23 @@ function colorNames(colors) {
   formattedColors += `\u001b[1mTotal Colors: \u001b[31m${totalColors}\u001b[0m\n\u001b[1mResponse Time: \u001b[34m${elapsedTime}ms\u001b[0m`;
 
   return formattedColors;
+
+  // helper function to get a property value from a nested object
+  function getObjectPropertyValue(obj, property) {
+    var value;
+    Object.keys(obj).some(function (key) {
+      if (key === property) {
+        value = obj[key];
+        return true;
+      } else if (typeof obj[key] === "object") {
+        value = getObjectPropertyValue(obj[key], property);
+        if (value !== undefined) {
+          return true;
+        }
+      }
+    });
+    return value;
+  }
 }
 
 /**
@@ -347,4 +466,6 @@ module.exports = {
   colors: colors,
   colorNames: colorNames,
   CustomHex: CustomHex,
+  ProductColors: ProductColors,
+  InternetColors: InternetColors,
 };
