@@ -4,4 +4,4 @@ console.log(colors.SeaGreen);
 console.log(colorNames(colors));
 console.log(colors.RandomAdvanced);
 console.log(colors.WildWatermelon);
-console.log(CustomHex("#FF1FFF"));
+console.log(CustomHex("#F"));

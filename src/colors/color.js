@@ -6,12 +6,40 @@ function getRandomHexColor() {
   }
   return parseInt(color, 16);
 }
+
+function ColorConvertError(prefix, ...message) {
+  Error.call(this);
+  this.message = `[${prefix}]: ${message.join(" ")}`;
+  this.name = "ColorConvertError";
+  if (Error.captureStackTrace) {
+    Error.captureStackTrace(this, ColorConvertError);
+  }
+}
+
+ColorConvertError.prototype = Object.create(Error.prototype);
+
 /**
  *
  * @param {string} hexCode
  * @returns {number} number
  */
 function CustomHex(hexCode) {
+  if (typeof hexCode !== "string") {
+    throw new ColorConvertError(
+      "TypeError",
+      `Expected type to be a\x1b[1m\x1b[31m "string"\x1b[0m.`,
+      `But got a\x1b[1m\x1b[31m "${typeof hexCode}"\x1b[0m instead.`
+    );
+  }
+  if (!hexCode.startsWith("#")) {
+    throw new ColorConvertError("InvalidFormat", "Color must be a valid hex");
+  }
+  if (hexCode.length < 2) {
+    throw new ColorConvertError(
+      "InvalidHex",
+      "The hex you provided is not valid"
+    );
+  }
   var prefix = "0x";
   var hCode = hexCode.toString().replace(/^#/, prefix);
   return parseInt(hCode, 16);
@@ -245,6 +273,17 @@ var colorArray = [
  * @returns {ColorNameError} ColorNamesError
  */
 
+function ColorNameError(prefix, ...message) {
+  Error.call(this);
+  this.message = `[${prefix}]: ${message.join(" ")}`;
+  this.name = "ColorNameError";
+  if (Error.captureStackTrace) {
+    Error.captureStackTrace(this, ColorNameError);
+  }
+}
+
+ColorNameError.prototype = Object.create(Error.prototype);
+
 function colorNames(colors) {
   if (typeof colors === "undefined") {
     throw new ColorNameError("NoObjectProvided", "No colors object provided.");
@@ -257,10 +296,8 @@ function colorNames(colors) {
     );
   }
 
-  // Get an array of color names sorted alphabetically
   var colorNames = Object.keys(colors).sort();
 
-  // Create a map of color names to their index in the sorted array
   var colorIndexMap = {};
   colorNames.forEach((colorName, index) => {
     colorIndexMap[colorName] = index;
