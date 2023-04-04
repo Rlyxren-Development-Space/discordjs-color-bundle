@@ -1,17 +1,19 @@
 declare function getRandomHexColor(): number;
-
+/**
+ *
+ * @param {string} hexCode
+ * @returns {number} number
+ */
 declare function CustomHex(hexCode: string): number;
 
-declare interface DiscordColors {
-  [key: number]: number;
+interface Colors {
+  [key: string]: number;
 }
+/**
+ * - The color object for Discord.js
+ * - It has more than 50 colors
+ * - It only works with Discord.js
+ */
+declare const colors: Colors;
 
-interface ColorsObject {
-  obj: object;
-}
-
-declare function colorNames(obj: ColorsObject): string;
-
-declare const colors: DiscordColors;
-
-export { getRandomHexColor, CustomHex, colors, colorNames };
+export { getRandomHexColor, CustomHex, colors };

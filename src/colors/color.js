@@ -6,13 +6,15 @@ function getRandomHexColor() {
   }
   return parseInt(color, 16);
 }
-
+/**
+ *
+ * @param {string} hexCode
+ * @returns {number} number
+ */
 function CustomHex(hexCode) {
   var prefix = "0x";
-  var hCode = hexCode.toString();
-  hCode.replace(/#/g, prefix);
-
-  return parseInt(hCode);
+  var hCode = hexCode.toString().replace(/^#/, prefix);
+  return parseInt(hCode, 16);
 }
 
 /**
@@ -236,24 +238,34 @@ var colorArray = [
   "PowderBlue",
 ];
 
-function AmountError(message) {
+/**
+ *
+ * @param {prefixInput} prefix
+ * @param {...any} message
+ * @returns {ColorNameError} ColorNamesError
+ */
+
+function ColorNameError(prefix, ...message) {
   Error.call(this);
-  this.message = `[InvalidAmount]: ${message}`;
-  this.name = "AmountError";
+  this.message = `[${prefix}]: ${message.join(" ")}`;
+  this.name = "ColorNameError";
   if (Error.captureStackTrace) {
-    Error.captureStackTrace(this, AmountError);
+    Error.captureStackTrace(this, ColorNameError);
   }
 }
 
-AmountError.prototype = Object.create(Error.prototype);
+ColorNameError.prototype = Object.create(Error.prototype);
 
 function colorNames(colors) {
   if (typeof colors === "undefined") {
-    throw new Error("No colors object provided.");
+    throw new ColorNameError("NoObjectProvided", "No colors object provided.");
   }
   if (typeof colors !== "object") {
-    throw new TypeError(`
-  Expected colors to be an "object" but got "${typeof colors}" instead.`);
+    throw new ColorNameError(
+      "TypeError",
+      `
+  Expected colors to be an "object" but got "${typeof colors}" instead.`
+    );
   }
   var colorNames = Object.keys(colors);
   var formattedColors = "";
@@ -272,6 +284,12 @@ function colorNames(colors) {
 
   return formattedColors;
 }
+
+/**
+ *
+ * @param {HexValueInput} hexValue
+ * @returns {ansiCode} ansiCode
+ */
 
 function hexToAnsi(hexValue) {
   var hexString = hexValue.toString(16).padStart(6, "0");
