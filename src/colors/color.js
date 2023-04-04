@@ -245,17 +245,6 @@ var colorArray = [
  * @returns {ColorNameError} ColorNamesError
  */
 
-function ColorNameError(prefix, ...message) {
-  Error.call(this);
-  this.message = `[${prefix}]: ${message.join(" ")}`;
-  this.name = "ColorNameError";
-  if (Error.captureStackTrace) {
-    Error.captureStackTrace(this, ColorNameError);
-  }
-}
-
-ColorNameError.prototype = Object.create(Error.prototype);
-
 function colorNames(colors) {
   if (typeof colors === "undefined") {
     throw new ColorNameError("NoObjectProvided", "No colors object provided.");
@@ -267,20 +256,33 @@ function colorNames(colors) {
   Expected colors to be an "object" but got "${typeof colors}" instead.`
     );
   }
-  var colorNames = Object.keys(colors);
+
+  // Get an array of color names sorted alphabetically
+  var colorNames = Object.keys(colors).sort();
+
+  // Create a map of color names to their index in the sorted array
+  var colorIndexMap = {};
+  colorNames.forEach((colorName, index) => {
+    colorIndexMap[colorName] = index;
+  });
+
   var formattedColors = "";
   var responseTime = new Date();
   for (var i = 0; i < colorNames.length; i++) {
     var colorName = colorNames[i];
     var colorValue = colors[colorName];
     var ansiColor = hexToAnsi(colorValue);
-    formattedColors += `${
-      i + 1
-    }. \x1b[1m${colorName}\x1b[0m ${ansiColor}${ansiColor}\n`;
+    var fromIndex = colorIndexMap[colorName] + 1;
+    var toIndex = colorNames.length;
+    if (i < colorNames.length - 1) {
+      var nextColorName = colorNames[i + 1];
+      toIndex = colorIndexMap[nextColorName];
+    }
+    formattedColors += `${ansiColor}${ansiColor}${toIndex}. \x1b[1m${colorName}\x1b[0m\n`;
   }
   var totalColors = colorNames.length;
   var elapsedTime = new Date() - responseTime;
-  formattedColors += `\u001b[1mTotal Colors: \u001b[36m${totalColors}\u001b[0m\n\u001b[1mResponse Time: \u001b[33m${elapsedTime}ms\u001b[0m`;
+  formattedColors += `\u001b[1mTotal Colors: \u001b[31m${totalColors}\u001b[0m\n\u001b[1mResponse Time: \u001b[34m${elapsedTime}ms\u001b[0m`;
 
   return formattedColors;
 }
