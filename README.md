@@ -18,7 +18,7 @@ yarn add discordjs-colors-bundle
 
 ## 🚀 Features
 
-- More than 50 unique colors
+- More than 100 unique colors
 - Zero-Dependency module
 - Light weight
 - TypeScript support
@@ -36,7 +36,7 @@ if (command == "e?color-name") {
     .setDescription(
       "This embed is colored by [discordjs-colors-bundle](https://npmjs.com/package/discordjs-colors-bundle)"
     )
-    .setColor(colors.SeaGreen); // Sea Green color
+    .setColor(colors.MaximumBlueGreen); // Maximum Blue Green color
 
   message.reply({ embeds: [ColorsEmbed] });
 }
@@ -47,8 +47,10 @@ If you want to log all the colors (just in case) you can use the **`colorNames()
 Here's an example of it:
 
 ```js
-console.log(colorNames()); // You can add the amount in the function parameter if you want.
+console.log(colorNames(colors)); // You have to provide the object.
 ```
+
+It will log color names with random colors, note that the color will not be synced with the color names.
 
 ## 📝 License
 
