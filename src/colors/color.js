@@ -210,7 +210,7 @@ const colors = {
  * - More than 15 colors
  */
 
-const ProductColors = {
+const productColors = {
   Soap: {
     DettolOriginalSoap: 0xc5e6a4,
     LifebuoyTotal10Soap: 0xfc8d8e,
@@ -244,7 +244,7 @@ const ProductColors = {
  * - More than 10 colors
  */
 
-const InternetColors = {
+const internetColors = {
   SocialMedia: {
     FacebookLogo: 0x1877f2,
     TwitterLogo: 0x1da1f2,
@@ -425,7 +425,6 @@ function colorNames(...colors) {
 
   return formattedColors;
 
-  // helper function to get a property value from a nested object
   function getObjectPropertyValue(obj, property) {
     var value;
     Object.keys(obj).some(function (key) {
@@ -466,6 +465,6 @@ module.exports = {
   colors: colors,
   colorNames: colorNames,
   CustomHex: CustomHex,
-  ProductColors: ProductColors,
-  InternetColors: InternetColors,
+  ProductColors: productColors,
+  InternetColors: internetColors,
 };
