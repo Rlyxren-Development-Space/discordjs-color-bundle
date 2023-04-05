@@ -1,3 +1,7 @@
+/**
+ *
+ * @returns {RandomHex} RandomHex
+ */
 function getRandomHexColor() {
   var letters = "0123456789ABCDEF";
   var color = "0x";
@@ -43,6 +47,46 @@ function CustomHex(hexCode) {
   var prefix = "0x";
   var hCode = hexCode.toString().replace(/^#/, prefix);
   return parseInt(hCode, 16);
+}
+
+/**
+ *
+ * @param {RedInput} red
+ * @param {GreenInput} green
+ * @param {NumberInput} blue
+ * @returns {HexValue} hexValue
+ */
+
+function CustomRGB(red, green, blue) {
+  const redHex = red.toString(16).padStart(2, "0");
+  const greenHex = green.toString(16).padStart(2, "0");
+  const blueHex = blue.toString(16).padStart(2, "0");
+
+  const hexString = `0x${redHex}${greenHex}${blueHex}`;
+
+  return parseInt(hexString.toLowerCase());
+}
+
+/**
+ *
+ * @param {RedInput} red
+ * @param {GreenInput} green
+ * @param {BlueInput} blue
+ * @param {AlphaInput} alpha
+ * @returns {HexCode} hexCode
+ */
+
+function CustomRGBA(red, green, blue, alpha) {
+  const redHex = red.toString(16).padStart(2, "0");
+  const greenHex = green.toString(16).padStart(2, "0");
+  const blueHex = blue.toString(16).padStart(2, "0");
+  const alphaHex = Math.round(alpha * 255)
+    .toString(16)
+    .padStart(2, "0");
+
+  const hexString = `0x${redHex}${greenHex}${blueHex}${alphaHex}`;
+
+  return parseInt(hexString.toLowerCase());
 }
 
 /**
@@ -467,4 +511,6 @@ module.exports = {
   CustomHex: CustomHex,
   ProductColors: productColors,
   InternetColors: internetColors,
+  CustomRGB: CustomRGB,
+  CustomRGBA: CustomRGBA,
 };
