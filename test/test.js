@@ -8,7 +8,7 @@ const {
   CustomRGBA,
 } = require("../src");
 
-console.log(colors.SeaGreen);
+console.log(colors.SeafoamSplash);
 console.log(colorNames(colors, InternetColors, ProductColors));
 console.log(colors.RandomAdvanced);
 console.log(colors.WildWatermelon);
