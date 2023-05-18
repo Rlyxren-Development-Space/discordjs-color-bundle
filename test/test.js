@@ -7,6 +7,9 @@ const {
   CustomRGB,
   CustomRGBA,
 } = require("../src");
+const obj = {
+  value1: "Shax",
+};
 
 console.log(colors.SeafoamSplash);
 console.log(colorNames(colors, InternetColors, ProductColors));
