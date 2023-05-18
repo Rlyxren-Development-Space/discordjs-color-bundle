@@ -55,9 +55,8 @@ Returns the number representation of the given hexadecimal color code.
 */
 declare function CustomHex(hexCode: string): number;
 /**
-
-An object containing color names as keys and their corresponding number representation as values.
-*/
+ * An object containing color names as keys and their corresponding number representation as values.
+ */
 interface Colors {
   Red: number;
   Orange: number;
@@ -207,12 +206,123 @@ interface Colors {
   SmokyBlack: number;
   SpanishGray: number;
   TiffanyBlue: number;
+  CoralPink: number;
+  DeepLilac: number;
+  ElectricLime: number;
+  NeonFuchsia: number;
+  OrchidPurple: number;
+  PaleCyan: number;
+  TealGreen: number;
+  VividMarigold: number;
+  BlushPink: number;
+  IceBlue: number;
+  LemonZest: number;
+  MauveMist: number;
+  PeridotGreen: number;
+  RadiantRose: number;
+  RichLavender: number;
+  SummerSky: number;
+  TwinklingTurquoise: number;
+  ElectricCrimson: number;
+  FluorescentGreen: number;
+  GrapePurple: number;
+  HotPurple: number;
+  LavenderPurple: number;
+  NavyGreen: number;
+  PaleViolet: number;
+  RoyalGold: number;
+  TidalBlue: number;
+  AntiqueFuchsia: number;
+  BubblegumPink: number;
+  CyberGrape: number;
+  ElectricOrange: number;
+  FlamingoPink: number;
+  KiwiGreen: number;
+  Limeade: number;
+  MardiGras: number;
+  PastelGreen: number;
+  RazzleDazzleRose: number;
+  ShamrockGreen: number;
+  SunburntCyclops: number;
+  ViperGreen: number;
+  WinterSky: number;
+  AmberRose: number;
+  BabyBlueEyes: number;
+  CarnationPink: number;
+  DeepMagenta: number;
+  ElectricPurple: number;
+  Honeydew: number;
+  Iceberg: number;
+  JungleGreen: number;
+  LavenderBlush: number;
+  Malibu: number;
+  NeonYellow: number;
+  PaleCornflowerBlue: number;
+  RaspberryPink: number;
+  RoseQuartz: number;
+  Saffron: number;
+  SillyGreen: number;
+  TangerineYellow: number;
+  UltraPink: number;
+  VanDykeBrown: number;
+  WildBlueYonder: number;
+  AcidGreen: number;
+  BahamaBlue: number;
+  CaribbeanGreen: number;
+  CoralReef: number;
+  DarkLiver: number;
+  Emerald: number;
+  FluorescentOrange: number;
+  Grullo: number;
+  HotMagenta: number;
+  Icterine: number;
+  Jonquil: number;
+  Keppel: number;
+  LightApricot: number;
+  MintCream: number;
+  Mystic: number;
+  NavyPurple: number;
+  OldLace: number;
+  PaleSilver: number;
+  QueenBlue: number;
+  RaisinBlack: number;
+  SalmonPink: number;
+  Sunset: number;
+  TickleMePink: number;
+  UCLABlue: number;
+  VeryLightBlue: number;
+  WindsorTan: number;
+  YoungGreen: number;
+  Zinnwaldite: number;
+  AirSuperiorityBlue: number;
+  BabyPowder: number;
+  CandyAppleRed: number;
+  DeepChestnut: number;
+  ElectricBlue: number;
+  FuchsiaPink: number;
+  GreenLizard: number;
+  IrisBlue: number;
+  JetStream: number;
+  LavenderRose: number;
+  Mantis: number;
+  NapierGreen: number;
+  Ochre: number;
+  PaleMagenta: number;
+  PlumWeb: number;
+  RazzmicBerry: number;
+  SizzlingRed: number;
+  SpanishCarmine: number;
+  TerraCotta: number;
+  TurquoiseBlue: number;
+  VividRaspberry: number;
+  Watermelon: number;
+  YellowOrange: number;
+  Zomp: number;
   RandomAdvanced: Function;
 }
 /**
-
-An object containing internet app color names as keys and their corresponding number representation as values.
-*/
+ *An object containing internet app color names as keys and their corresponding number representation as values.
+ */
 interface InternetColors {
   SocialMedia: {
     FacebookLogo: number;
@@ -220,35 +330,60 @@ interface InternetColors {
     InstagramLogo: number;
     LinkedInLogo: number;
     SnapchatLogo: number;
+    PinterestLogo: number;
+    TikTokLogo: number;
+    RedditLogo: number;
   };
   Communication: {
     DiscordLogo: number;
     ZoomLogo: number;
     SkypeLogo: number;
     SlackLogo: number;
+    MicrosoftTeamsLogo: number;
+    WhatsAppLogo: number;
+    TelegramLogo: number;
+    SignalLogo: number;
   };
   ECommerce: {
     AmazonLogo: number;
     eBayLogo: number;
     ShopifyLogo: number;
+    AliExpressLogo: number;
+    EtsyLogo: number;
+    WalmartLogo: number;
+    TargetLogo: number;
+    BestBuyLogo: number;
   };
   Musics: {
     MusicStreaming: {
       SpotifyLogo: number;
       AppleMusicLogo: number;
       TidalLogo: number;
+      DeezerLogo: number;
+      AmazonMusicLogo: number;
+      GooglePlayMusicLogo: number;
+      PandoraLogo: number;
+      SoundCloudLogo: number;
     };
     MusicRecognition: {
       ShazamLogo: number;
       MusixmatchLogo: number;
+      SoundHoundLogo: number;
+      GeniusLogo: number;
     };
     MusicalInstruments: {
       FenderLogo: number;
       GibsonLogo: number;
       YamahaLogo: number;
+      RolandLogo: number;
+      KorgLogo: number;
+      SteinwayAndSonsLogo: number;
+      CasioLogo: number;
+      PearlDrumsLogo: number;
     };
   };
 }
+
 /**
 
 - An object containing product color names as keys and their corresponding number representation as values.
@@ -259,24 +394,40 @@ interface ProductColors {
     LifebuoyTotal10Soap: number;
     DoveWhiteBeautyBarSoap: number;
     IvoryOriginalBathSoap: number;
+    LuxSoftTouchSoap: number;
+    PalmoliveAromaMorningTonicSoap: number;
+    PearsNaturalGlycerineSoap: number;
+    YardleyEnglishLavenderSoap: number;
   };
   Electronics: {
     RazerBlade15GamingLaptop: number;
     AppleiPhone13ProMax: number;
     SamsungGalaxyS21Ultra: number;
     SonyPlayStation5: number;
+    MicrosoftSurfaceBook3: number;
+    LenovoThinkPadX1Carbon: number;
+    DellXPS15: number;
+    HPEnvy13: number;
   };
   FoodAndBeverages: {
     CocaColaClassic: number;
     Pepsi: number;
     KitKat: number;
     Oreo: number;
+    LaysClassicChips: number;
+    Snickers: number;
+    Nutella: number;
+    MAndMs: number;
   };
   Clothing: {
     NikeAirMax97: number;
     AdidasOriginalsSuperstar: number;
     Levis501OriginalJeans: number;
     HAndMBasicTshirt: number;
+    ZaraDenimJacket: number;
+    Forever21PrintedDress: number;
+    GucciLogoTee: number;
+    BurberryCheckScarf: number;
   };
 }
 /**
