@@ -16,24 +16,19 @@ function getRandomHexColor() {
   return parseInt(color, 16);
 }
 
-/**
- * Custom error for color conversion.
- * @param {string} prefix - The error prefix.
- * @param {...any} message - Error message.
- * @returns {void}
- * @constructor
- */
-
-function ColorConvertError(prefix, ...message) {
-  Error.call(this);
-  this.message = `[${prefix}]: ${message.join(" ")}`;
-  this.name = "ColorConvertError";
-  if (Error.captureStackTrace) {
-    Error.captureStackTrace(this, ColorConvertError);
+class ColorConvertError extends Error {
+  /**
+   * Custom error for color conversion.
+   * @param {string} prefix - The error prefix.
+   * @param {...any} message - Error message.
+   * @returns {void}
+   */
+  constructor(prefix, ...message) {
+    super(message.join(" "));
+    this.message = `[${prefix}]: ${message.join(" ")}`;
+    this.name = "ColorConvertError";
   }
 }
-
-ColorConvertError.prototype = Object.create(Error.prototype);
 
 /**
  * Custom hexadecimal color code.
@@ -588,24 +583,19 @@ var colorArray = [
   "PowderBlue",
 ];
 
-/**
- * Custom error for color names.
- * @param {string} prefix - The error prefix.
- * @param {...any} message - Error message.
- * @returns {void}
- * @constructor
- */
-
-function ColorNameError(prefix, ...message) {
-  Error.call(this);
-  this.message = `[${prefix}]: ${message.join(" ")}`;
-  this.name = "ColorNameError";
-  if (Error.captureStackTrace) {
-    Error.captureStackTrace(this, ColorNameError);
+class ColorNameError extends Error {
+  /**
+   * Custom error for color names.
+   * @param {string} prefix - The error prefix.
+   * @param {...any} message - Error message.
+   * @returns {void}
+   */
+  constructor(prefix, ...message) {
+    super(message.join(""));
+    this.message = `[${prefix}]: ${message.join(" ")}`;
+    this.name = "ColorNameError";
   }
 }
-
-ColorNameError.prototype = Object.create(Error.prototype);
 
 /**
  * Get unique color names from multiple color objects.
