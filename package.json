@@ -1,17 +1,17 @@
 {
   "name": "discordjs-colors-bundle",
-  "version": "2.3.0",
-  "description": "Tons of colors for your DiscordJS bot's embed",
-  "main": "src/index.js",
-  "types": "typings/index.d.ts",
+  "version": "2.4.0",
+  "description": "Three expansive color objects designed to enrich the visual appeal (colors) of your DiscordJS Bot's Embed.",
+  "main": "colors-bundle/index.js",
+  "types": "colors-bundle/index.d.ts",
   "files": [
-    "src",
+    "colors-bundle",
     "typings",
     "LICENSE",
     "README.md"
   ],
   "directories": {
-    "lib": "src",
+    "lib": "colors-bundle",
     "test": "test"
   },
   "scripts": {
