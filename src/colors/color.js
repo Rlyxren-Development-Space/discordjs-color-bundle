@@ -1,7 +1,12 @@
 /**
- *
- * @returns {RandomHex} RandomHex
+ * @typedef {number} RandomHex - Random hexadecimal color code.
  */
+
+/**
+ * Generate a random hexadecimal color code.
+ * @returns {RandomHex} Random hexadecimal color code.
+ */
+
 function getRandomHexColor() {
   var letters = "0123456789ABCDEF";
   var color = "0x";
@@ -10,6 +15,14 @@ function getRandomHexColor() {
   }
   return parseInt(color, 16);
 }
+
+/**
+ * Custom error for color conversion.
+ * @param {string} prefix - The error prefix.
+ * @param {...any} message - Error message.
+ * @returns {void}
+ * @constructor
+ */
 
 function ColorConvertError(prefix, ...message) {
   Error.call(this);
@@ -23,10 +36,17 @@ function ColorConvertError(prefix, ...message) {
 ColorConvertError.prototype = Object.create(Error.prototype);
 
 /**
- *
- * @param {string} hexCode
- * @returns {number} number
+ * Custom hexadecimal color code.
+ * @typedef {number} CustomHex
  */
+
+/**
+ * Convert a hexadecimal color code to a number.
+ * @param {string} hexCode - Hexadecimal color code.
+ * @returns {CustomHex} Converted hexadecimal color code.
+ * @throws {ColorConvertError} Throws an error if the hexCode is invalid.
+ */
+
 function CustomHex(hexCode) {
   if (typeof hexCode !== "string") {
     throw new ColorConvertError(
@@ -50,11 +70,16 @@ function CustomHex(hexCode) {
 }
 
 /**
- *
- * @param {RedInput} red
- * @param {GreenInput} green
- * @param {NumberInput} blue
- * @returns {HexValue} hexValue
+ * Custom RGB color value.
+ * @typedef {number} HexValue - Hexadecimal color value.
+ */
+
+/**
+ * Convert RGB values to a hexadecimal color code.
+ * @param {number} red - Red color value (0-255).
+ * @param {number} green - Green color value (0-255).
+ * @param {number} blue - Blue color value (0-255).
+ * @returns {HexValue} Hexadecimal color code.
  */
 
 function CustomRGB(red, green, blue) {
@@ -68,12 +93,17 @@ function CustomRGB(red, green, blue) {
 }
 
 /**
- *
- * @param {RedInput} red
- * @param {GreenInput} green
- * @param {BlueInput} blue
- * @param {AlphaInput} alpha
- * @returns {HexCode} hexCode
+ * Custom RGBA color value.
+ * @typedef {number} HexCode - Hexadecimal color code.
+ */
+
+/**
+ * Convert RGBA values to a hexadecimal color code.
+ * @param {number} red - Red color value (0-255).
+ * @param {number} green - Green color value (0-255).
+ * @param {number} blue - Blue color value (0-255).
+ * @param {number} alpha - Alpha value (0-1).
+ * @returns {HexCode} Hexadecimal color code.
  */
 
 function CustomRGBA(red, green, blue, alpha) {
@@ -90,9 +120,15 @@ function CustomRGBA(red, green, blue, alpha) {
 }
 
 /**
+ * @typedef {Object.<string, number>} Colors - Object containing color names and values.
+ */
+
+/**
+ * The color object for Discord.js.
  * - The color object for Discord.js
  * - It has more than 148 colors
  * - It only works with Discord.js
+ * @type {Colors}
  */
 
 const colors = {
@@ -360,6 +396,12 @@ const colors = {
 };
 
 /**
+ * @typedef {Object.<string, Colors>} ProductColors - Object containing product color categories and their colors.
+ */
+
+/**
+ * The Product Color Object for Discord.js.
+ * @type {ProductColors}
  * - The Product Color Object for Discord.js
  * - It has unique colors
  * - Colors of Electronics, Soaps etc
@@ -410,6 +452,12 @@ const productColors = {
 };
 
 /**
+ * @typedef {Object.<string, Colors>} InternetColors - Object containing internet color categories and their colors.
+ */
+
+/**
+ * The Internet Color Object for Discord.js.
+ * @type {InternetColors}
  * - The Internet Color Object for Discord.js
  * - It has awesome colors
  * - Colors of popular apps
@@ -541,10 +589,11 @@ var colorArray = [
 ];
 
 /**
- *
- * @param {prefixInput} prefix
- * @param {...any} message
- * @returns {ColorNameError} ColorNamesError
+ * Custom error for color names.
+ * @param {string} prefix - The error prefix.
+ * @param {...any} message - Error message.
+ * @returns {void}
+ * @constructor
  */
 
 function ColorNameError(prefix, ...message) {
@@ -557,6 +606,13 @@ function ColorNameError(prefix, ...message) {
 }
 
 ColorNameError.prototype = Object.create(Error.prototype);
+
+/**
+ * Get unique color names from multiple color objects.
+ * @param {...Colors} colors - Color objects.
+ * @returns {string} Formatted color names.
+ * @throws {ColorNameError} Throws an error if no color objects are provided or if an invalid color object is encountered.
+ */
 
 function colorNames(...colors) {
   if (colors.length === 0) {
@@ -644,9 +700,9 @@ function colorNames(...colors) {
 }
 
 /**
- *
- * @param {HexValueInput} hexValue
- * @returns {ansiCode} ansiCode
+ * Convert a hexadecimal color value to an ANSI color code.
+ * @param {number} hexValue - Hexadecimal color value.
+ * @returns {string} ANSI color code.
  */
 
 function hexToAnsi(hexValue) {
@@ -662,12 +718,12 @@ function hexToAnsi(hexValue) {
   return `\u001b[38;5;${ansiColorCode}m`;
 }
 
-module.exports = {
-  colors: colors,
-  colorNames: colorNames,
-  CustomHex: CustomHex,
-  ProductColors: productColors,
-  InternetColors: internetColors,
-  CustomRGB: CustomRGB,
-  CustomRGBA: CustomRGBA,
+export {
+  colors,
+  colorNames,
+  CustomHex,
+  productColors,
+  internetColors,
+  CustomRGB,
+  CustomRGBA,
 };
