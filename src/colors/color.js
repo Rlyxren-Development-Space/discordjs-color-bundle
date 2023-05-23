@@ -119,13 +119,267 @@ function CustomRGBA(red, green, blue, alpha) {
  */
 
 /**
- * The color object for Discord.js.
- * - The color object for Discord.js
- * - It has more than 148 colors
- * - It only works with Discord.js
- * @type {Colors}
+ * @typedef {Object} colors
+ * @property {number} Red
+ * @property {number} Orange
+ * @property {number} Yellow
+ * @property {number} Green
+ * @property {number} Blue
+ * @property {number} Indigo
+ * @property {number} Violet
+ * @property {number} Purple
+ * @property {number} Lime
+ * @property {number} LemonJuice
+ * @property {number} CadetBlue
+ * @property {number} HotPink
+ * @property {number} CornFlowerBlue
+ * @property {number} Brick
+ * @property {number} OliveDrab
+ * @property {number} Olive
+ * @property {number} Coral
+ * @property {number} LightCoral
+ * @property {number} Cyan
+ * @property {number} LightCyan
+ * @property {number} Aqua
+ * @property {number} Aquamarine
+ * @property {number} Salmon
+ * @property {number} SeaGreen
+ * @property {number} SeaBlue
+ * @property {number} LightSeaGreen
+ * @property {number} SkyBlue
+ * @property {number} LightSkyBlue
+ * @property {number} SpringGreen
+ * @property {number} Tomato
+ * @property {number} Chartreuse
+ * @property {number} DarkChartreuse
+ * @property {number} SandyBrown
+ * @property {number} Plum
+ * @property {number} MysticMauve
+ * @property {number} ElectricKiwi
+ * @property {number} VelvetMaroon
+ * @property {number} TurquoiseSurf
+ * @property {number} MidnightSun
+ * @property {number} CherryBlossomPink
+ * @property {number} LavenderHaze
+ * @property {number} CaramelLatte
+ * @property {number} Goldenrod
+ * @property {number} IndigoNight
+ * @property {number} SeafoamSplash
+ * @property {number} LimeFizz
+ * @property {number} SapphireDepths
+ * @property {number} MintMist
+ * @property {number} FrostyFern
+ * @property {number} MidnightMarina
+ * @property {number} WildStrawberry
+ * @property {number} DeepAqua
+ * @property {number} BerrySorbet
+ * @property {number} DreamyLavender
+ * @property {number} WildWatermelon
+ * @property {number} FrostyMint
+ * @property {number} PeachyPink
+ * @property {number} PastelPeach
+ * @property {number} CandyPink
+ * @property {number} PowderBlue
+ * @property {number} Azzurro
+ * @property {number} AmaranthPink
+ * @property {number} Aubergine
+ * @property {number} Byzantium
+ * @property {number} CaputMortuum
+ * @property {number} CeruleanFrost
+ * @property {number} Coquelicot
+ * @property {number} DarkByzantium
+ * @property {number} EtonBlue
+ * @property {number} Feldgrau
+ * @property {number} Gainsboro
+ * @property {number} HeliotropeGray
+ * @property {number} InternationalKleinBlue
+ * @property {number} Jasper
+ * @property {number} KhakiRose
+ * @property {number} LemonCurry
+ * @property {number} Malachite
+ * @property {number} MikadoYellow
+ * @property {number} NadeshikoPink
+ * @property {number} Olivine
+ * @property {number} PansyPurple
+ * @property {number} PapayaWhip
+ * @property {number} Periwinkle
+ * @property {number} PersianPlum
+ * @property {number} PhthaloGreen
+ * @property {number} PineGreen
+ * @property {number} QuinacridoneMagenta
+ * @property {number} RoseMadder
+ * @property {number} SapphireBlue
+ * @property {number} SeafoamGreen
+ * @property {number} Smalt
+ * @property {number} Tan
+ * @property {number} TaupeGray
+ * @property {number} Tawny
+ * @property {number} Tumbleweed
+ * @property {number} TyrianPurple
+ * @property {number} Ube
+ * @property {number} Verdigris
+ * @property {number} ViridianGreen
+ * @property {number} Wheat
+ * @property {number} Wisteria
+ * @property {number} Xanadu
+ * @property {number} YaleBlue
+ * @property {number} Zaffre
+ * @property {number} Zomp
+ * @property {number} Sarcoline
+ * @property {number} Sinopia
+ * @property {number} Smaragdine
+ * @property {number} Glaucous
+ * @property {number} AmaranthDeepPurple
+ * @property {number} BlueSapphire
+ * @property {number} Byzantine
+ * @property {number} CeladonGreen
+ * @property {number} Cinnabar
+ * @property {number} CobaltBlue
+ * @property {number} CoralRed
+ * @property {number} CurrantRed
+ * @property {number} DarkSeaGreen
+ * @property {number} DeepCarminePink
+ * @property {number} DeepJungleGreen
+ * @property {number} DeepViolet
+ * @property {number} ElectricIndigo
+ * @property {number} Fandango
+ * @property {number} Heliotrope
+ * @property {number} IndigoDye
+ * @property {number} Iridescent
+ * @property {number} LavenderGray
+ * @property {number} Lava
+ * @property {number} LemonGlacier
+ * @property {number} LightSlateGray
+ * @property {number} MaximumBlueGreen
+ * @property {number} MidnightGreen
+ * @property {number} OldRose
+ * @property {number} OtterBrown
+ * @property {number} PaleTaupe
+ * @property {number} PeachPuff
+ * @property {number} PersianBlue
+ * @property {number} Phlox
+ * @property {number} Pineapple
+ * @property {number} PrussianBlue
+ * @property {number} Raspberry
+ * @property {number} RichBlack
+ * @property {number} RoseGold
+ * @property {number} Russet
+ * @property {number} SmokyBlack
+ * @property {number} SpanishGray
+ * @property {number} TiffanyBlue
+ * @property {number} CoralPink
+ * @property {number} DeepLilac
+ * @property {number} ElectricLime
+ * @property {number} NeonFuchsia
+ * @property {number} OrchidPurple
+ * @property {number} PaleCyan
+ * @property {number} TealGreen
+ * @property {number} VividMarigold
+ * @property {number} BlushPink
+ * @property {number} IceBlue
+ * @property {number} LemonZest
+ * @property {number} MauveMist
+ * @property {number} PeridotGreen
+ * @property {number} RadiantRose
+ * @property {number} RichLavender
+ * @property {number} SummerSky
+ * @property {number} TwinklingTurquoise
+ * @property {number} ElectricCrimson
+ * @property {number} FluorescentGreen
+ * @property {number} GrapePurple
+ * @property {number} HotPurple
+ * @property {number} LavenderPurple
+ * @property {number} NavyGreen
+ * @property {number} PaleViolet
+ * @property {number} RoyalGold
+ * @property {number} TidalBlue
+ * @property {number} AntiqueFuchsia
+ * @property {number} BubblegumPink
+ * @property {number} CyberGrape
+ * @property {number} ElectricOrange
+ * @property {number} FlamingoPink
+ * @property {number} KiwiGreen
+ * @property {number} Limeade
+ * @property {number} MardiGras
+ * @property {number} PastelGreen
+ * @property {number} RazzleDazzleRose
+ * @property {number} ShamrockGreen
+ * @property {number} SunburntCyclops
+ * @property {number} ViperGreen
+ * @property {number} WinterSky
+ * @property {number} AmberRose
+ * @property {number} BabyBlueEyes
+ * @property {number} CarnationPink
+ * @property {number} DeepMagenta
+ * @property {number} ElectricPurple
+ * @property {number} Honeydew
+ * @property {number} Iceberg
+ * @property {number} JungleGreen
+ * @property {number} LavenderBlush
+ * @property {number} Malibu
+ * @property {number} NeonYellow
+ * @property {number} PaleCornflowerBlue
+ * @property {number} RaspberryPink
+ * @property {number} RoseQuartz
+ * @property {number} Saffron
+ * @property {number} SillyGreen
+ * @property {number} TangerineYellow
+ * @property {number} UltraPink
+ * @property {number} VanDykeBrown
+ * @property {number} WildBlueYonder
+ * @property {number} AcidGreen
+ * @property {number} BahamaBlue
+ * @property {number} CaribbeanGreen
+ * @property {number} CoralReef
+ * @property {number} DarkLiver
+ * @property {number} Emerald
+ * @property {number} FluorescentOrange
+ * @property {number} Grullo
+ * @property {number} HotMagenta
+ * @property {number} Icterine
+ * @property {number} Jonquil
+ * @property {number} Keppel
+ * @property {number} LightApricot
+ * @property {number} MintCream
+ * @property {number} Mystic
+ * @property {number} NavyPurple
+ * @property {number} OldLace
+ * @property {number} PaleSilver
+ * @property {number} QueenBlue
+ * @property {number} RaisinBlack
+ * @property {number} SalmonPink
+ * @property {number} Sunset
+ * @property {number} TickleMePink
+ * @property {number} UCLABlue
+ * @property {number} VeryLightBlue
+ * @property {number} WindsorTan
+ * @property {number} YoungGreen
+ * @property {number} Zinnwaldite
+ * @property {number} AirSuperiorityBlue
+ * @property {number} BabyPowder
+ * @property {number} CandyAppleRed
+ * @property {number} DeepChestnut
+ * @property {number} ElectricBlue
+ * @property {number} FuchsiaPink
+ * @property {number} GreenLizard
+ * @property {number} IrisBlue
+ * @property {number} JetStream
+ * @property {number} LavenderRose
+ * @property {number} Mantis
+ * @property {number} NapierGreen
+ * @property {number} Ochre
+ * @property {number} PaleMagenta
+ * @property {number} PlumWeb
+ * @property {number} RazzmicBerry
+ * @property {number} SizzlingRed
+ * @property {number} SpanishCarmine
+ * @property {number} TerraCotta
+ * @property {number} TurquoiseBlue
+ * @property {number} VividRaspberry
+ * @property {number} Watermelon
+ * @property {number} YellowOrange
+ * @property {Function} RandomAdvanced
  */
-
 const colors = {
   Red: 0xff0000,
   Orange: 0xffa500,
@@ -447,7 +701,86 @@ const productColors = {
 };
 
 /**
- * @typedef {Object.<string, Colors>} InternetColors - Object containing internet color categories and their colors.
+ * @typedef {Object} SocialMedia
+ * @property {number} FacebookLogo
+ * @property {number} TwitterLogo
+ * @property {number} InstagramLogo
+ * @property {number} LinkedInLogo
+ * @property {number} SnapchatLogo
+ * @property {number} PinterestLogo
+ * @property {number} TikTokLogo
+ * @property {number} RedditLogo
+ */
+
+/**
+ * @typedef {Object} Communication
+ * @property {number} DiscordLogo
+ * @property {number} ZoomLogo
+ * @property {number} SkypeLogo
+ * @property {number} SlackLogo
+ * @property {number} MicrosoftTeamsLogo
+ * @property {number} WhatsAppLogo
+ * @property {number} TelegramLogo
+ * @property {number} SignalLogo
+ */
+
+/**
+ * @typedef {Object} ECommerce
+ * @property {number} AmazonLogo
+ * @property {number} eBayLogo
+ * @property {number} ShopifyLogo
+ * @property {number} AliExpressLogo
+ * @property {number} EtsyLogo
+ * @property {number} WalmartLogo
+ * @property {number} TargetLogo
+ * @property {number} BestBuyLogo
+ */
+
+/**
+ * @typedef {Object} MusicStreaming
+ * @property {number} SpotifyLogo
+ * @property {number} AppleMusicLogo
+ * @property {number} TidalLogo
+ * @property {number} DeezerLogo
+ * @property {number} AmazonMusicLogo
+ * @property {number} GooglePlayMusicLogo
+ * @property {number} PandoraLogo
+ * @property {number} SoundCloudLogo
+ */
+
+/**
+ * @typedef {Object} MusicRecognition
+ * @property {number} ShazamLogo
+ * @property {number} MusixmatchLogo
+ * @property {number} SoundHoundLogo
+ * @property {number} GeniusLogo
+ */
+
+/**
+ * @typedef {Object} MusicalInstruments
+ * @property {number} FenderLogo
+ * @property {number} GibsonLogo
+ * @property {number} YamahaLogo
+ * @property {number} RolandLogo
+ * @property {number} KorgLogo
+ * @property {number} SteinwayAndSonsLogo
+ * @property {number} CasioLogo
+ * @property {number} PearlDrumsLogo
+ */
+
+/**
+ * @typedef {Object} Musics
+ * @property {MusicStreaming} MusicStreaming
+ * @property {MusicRecognition} MusicRecognition
+ * @property {MusicalInstruments} MusicalInstruments
+ */
+
+/**
+ * @typedef {Object} InternetColors
+ * @property {SocialMedia} SocialMedia
+ * @property {Communication} Communication
+ * @property {ECommerce} ECommerce
+ * @property {Musics} Musics
  */
 
 /**
