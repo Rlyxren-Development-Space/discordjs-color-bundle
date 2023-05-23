@@ -6,7 +6,6 @@
   "types": "colors-bundle/index.d.ts",
   "files": [
     "colors-bundle",
-    "typings",
     "LICENSE",
     "README.md"
   ],
