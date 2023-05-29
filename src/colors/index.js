@@ -7,3 +7,4 @@ export {
   internetColors,
   productColors,
 } from "./color";
+export { Colors } from "./colorEnum";
