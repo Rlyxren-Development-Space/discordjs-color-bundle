@@ -487,7 +487,6 @@ const colors = {
   Zaffre: 0x0014a8,
   Zomp: 0x39a78e,
   Sarcoline: 0xffa07a,
-  Coquelicot: 0xff3800,
   Sinopia: 0xcb410b,
   Smaragdine: 0x50c878,
   Glaucous: 0x6082b6,
@@ -640,7 +639,6 @@ const colors = {
   VividRaspberry: 0xff006c,
   Watermelon: 0xfd5b78,
   YellowOrange: 0xffae42,
-  Zomp: 0x39a78e,
   RandomAdvanced: getRandomHexColor(),
 };
 
@@ -935,6 +933,7 @@ class ColorNameError extends Error {
  * @param {...Colors} colors - Color objects.
  * @returns {string} Formatted color names.
  * @throws {ColorNameError} Throws an error if no color objects are provided or if an invalid color object is encountered.
+ * @deprecated
  */
 
 function colorNames(...colors) {
