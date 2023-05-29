@@ -44,6 +44,23 @@ if (command == "e?color-name") {
 }
 ```
 
+You can also use the ENUM:
+
+```js
+const { Colors } = require("discordjs-colors-bundle");
+
+if (command == "e?color-name") {
+  const ColorsEmbed = new EmbedBuilder()
+    .setTitle("Just an embed")
+    .setDescription(
+      "This embed is colored by [discordjs-colors-bundle](https://npmjs.com/package/discordjs-colors-bundle)"
+    )
+    .setColor(Colors.MaximumBlueGreen); // Maximum Blue Green color
+
+  message.reply({ embeds: [ColorsEmbed] });
+}
+```
+
 If you want to log all the colors (just in case) you can use the **`colorNames()`** function.
 
 Here's an example of it:
@@ -52,8 +69,22 @@ Here's an example of it:
 console.log(colorNames(colors)); // You have to provide the object.
 ```
 
-It will log color names with random colors, note that the color will not be synced with the color names.
+NOTE: THIS FEATURE IS DEPRECATED USE `logColorsNames()` INSTEAD.
+
+```js
+logColorsNames("Italic", colors); // Param1: Styling. Available: Bold, Italic, Regular, Bold Italic. param 2 and rest are for objects
+```
+
+## Available Color Objects
+
+- colors
+- internetColors
+- productColors
+
+## Available Color Enums
+
+- Colors
 
 ## 📝 License
 
-[**MIT LICENSE**](/LICENSE);
+[**MIT LICENSE**](/LICENSE)
