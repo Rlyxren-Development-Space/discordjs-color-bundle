@@ -1020,6 +1020,71 @@ function colorNames(...colors) {
     return value;
   }
 }
+/**
+ * @typedef {"Italic" | "Bold" | "Bold Italic" | "Regular"} style
+ */
+
+/**
+ *
+ * @param  {...Colors} objects
+ * @param {style} styling
+ */
+
+const logColorsNames = (styling = "Regular", ...objects) => {
+  const keys = [];
+  const countByAlphabet = {};
+
+  function traverse(obj, path = "") {
+    if (typeof obj !== "object" || obj === null) {
+      const key = path.charAt(0).toUpperCase();
+      keys.push({ key: path, value: obj });
+
+      if (countByAlphabet[key]) {
+        countByAlphabet[key]++;
+      } else {
+        countByAlphabet[key] = 1;
+      }
+
+      return;
+    }
+
+    for (let key in obj) {
+      const newPath = path ? `${path}.${key}` : key;
+      traverse(obj[key], newPath);
+    }
+  }
+
+  const startTime = new Date().getTime();
+  objects.forEach((obj) => traverse(obj));
+  const endTime = new Date().getTime();
+
+  keys.sort((a, b) => a.key.localeCompare(b.key));
+
+  console.log("Color Names:");
+  keys.forEach((entry, index) => {
+    const ansiColor = hexToAnsi(entry.value);
+    const styledEntry = styleEntry(entry, styling);
+    console.log(`${ansiColor}${ansiColor}${index + 1}. ${styledEntry}`);
+  });
+  console.log(`\n\u001b[1mTotal Colors: \u001b[31m${keys.length}`);
+  console.log(
+    `\u001b[0m\u001b[1mResponse Time:  \u001b[34m${
+      endTime - startTime
+    }ms\u001b[0m`
+  );
+  function styleEntry(entry, styling) {
+    switch (styling) {
+      case "Italic":
+        return `\x1b[3m${entry.key} - value: ${entry.value}\x1b[0m`;
+      case "Bold":
+        return `\x1b[1m${entry.key} - value: ${entry.value}\x1b[0m`;
+      case "Bold Italic":
+        return `\x1b[1;3m${entry.key} - value: ${entry.value}\x1b[0m`;
+      default:
+        return `${entry.key} - value: ${entry.value}`;
+    }
+  }
+};
 
 /**
  * Convert a hexadecimal color value to an ANSI color code.
@@ -1048,4 +1113,5 @@ export {
   internetColors,
   CustomRGB,
   CustomRGBA,
+  logColorsNames,
 };
