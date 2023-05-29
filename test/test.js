@@ -6,13 +6,11 @@ const {
   productColors,
   CustomRGB,
   CustomRGBA,
+  Colors,
 } = require("../colors-bundle");
-const obj = {
-  value1: "Shax",
-};
 
 console.log(colors.AmberRose);
-console.log(colorNames(colors));
+console.log(Colors.Watermelon);
 console.log(colors.RandomAdvanced);
 console.log(colors.WildWatermelon);
 console.log(CustomHex("#F"));
